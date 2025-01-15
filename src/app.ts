@@ -2,7 +2,7 @@ import { FullScope } from "./constants";
 import { createPermissions } from "./permission/createPermissions";
 import { createPolicies } from "./policy/createPolicies";
 import { PoliciesParam, policiesParams } from "./policy/policiesParams";
-import { getPolicies } from "./policy/getPolicies";
+import { formatPolicies } from "./policy/formatPolicies";
 import { formatAndCreateResources } from "./resources/formatAndCreateResources";
 import { updateResource } from "./resources/updateResource";
 import { createRoles } from "./roles/createRoles";
@@ -99,7 +99,7 @@ async function formatAndCreate({
   // 3. create policies
   console.log("creating policies");
   const policiesCreated = await createPolicies(
-    getPolicies(policiesParams, rolesCreated)
+    formatPolicies(policiesParams, rolesCreated)
   );
   console.log("policiesCreated");
   console.log(JSON.stringify(policiesCreated));

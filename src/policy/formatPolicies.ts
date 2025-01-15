@@ -14,7 +14,7 @@ export interface Policy {
   decisionStrategy: "UNANIMOUS";
 }
 
-export let getPolicies = (policiesParams: PoliciesParam[], roles: FullRole[]) => {
+export let formatPolicies = (policiesParams: PoliciesParam[], roles: FullRole[]) => {
   const policies: Policy[] = [];
 
   policiesParams.map((policyParam) => {

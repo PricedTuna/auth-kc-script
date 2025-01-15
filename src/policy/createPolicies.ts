@@ -1,8 +1,7 @@
 import { createPolicy } from "./createPolicy";
-import { Policy } from "./getPolicies";
+import { Policy } from "./formatPolicies";
 
 export const createPolicies = async (policies: Policy[]) => {
-  console.log("va a crear policies")
   const reponses = await Promise.all(
     policies.map((policy) => createPolicy(policy))
   );
