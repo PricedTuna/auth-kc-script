@@ -1,4 +1,4 @@
-import { PoliciesParam } from "./params";
+import { PoliciesParam } from "./policiesParams";
 import { FullRole } from "../constants";
 import { RolesNameType } from "../types";
 
@@ -51,7 +51,7 @@ export let getPolicies = (policiesParams: PoliciesParam[], roles: FullRole[]) =>
   return policies
 };
 
-export const getRole = (roleName: RolesNameType, roles: FullRole[]): Role => {
+const getRole = (roleName: RolesNameType, roles: FullRole[]): Role => {
   const rol = roles.find((rol) => rol.name == roleName);
   
   if(rol == undefined)

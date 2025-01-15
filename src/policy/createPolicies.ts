@@ -1,5 +1,5 @@
 import { createPolicy } from "./createPolicy";
-import { Policy } from "./politicas";
+import { Policy } from "./getPolicies";
 
 export const createPolicies = async (policies: Policy[]) => {
   console.log("va a crear policies")

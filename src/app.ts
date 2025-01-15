@@ -1,8 +1,8 @@
 import { FullScope } from "./constants";
 import { createPermissions } from "./permission/createPermissions";
 import { createPolicies } from "./policy/createPolicies";
-import { PoliciesParam, policiesParams } from "./policy/params";
-import { getPolicies } from "./policy/politicas";
+import { PoliciesParam, policiesParams } from "./policy/policiesParams";
+import { getPolicies } from "./policy/getPolicies";
 import { formatAndCreateResources } from "./resources/formatAndCreateResources";
 import { updateResource } from "./resources/updateResource";
 import { createRoles } from "./roles/createRoles";

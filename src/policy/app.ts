@@ -1,7 +1,7 @@
 import { FullRole } from "../constants";
 import { createPolicies } from "./createPolicies";
-import { PoliciesParam } from "./params";
-import { getPolicies } from "./politicas";
+import { PoliciesParam } from "./policiesParams";
+import { getPolicies } from "./getPolicies";
 
 const policiesParams: PoliciesParam[] = []
 const roles: FullRole[]  = []
