@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES2022", // Actualiza a "ES2022" para soportar async/await
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "outDir": "./dist",
+    "lib": ["ES2022", "DOM"] // Actualiza la biblioteca base a "ES2022"
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
+}
