@@ -8,7 +8,7 @@ import { groupUsersPoliciesParams } from "./policy/byGroup/groupUsersPoliciesPar
 import { formatAndCreateResources } from "./resources/formatAndCreateResources";
 import { updateResource } from "./resources/updateResource";
 import { formatAndCreateScopes } from "./scopes/formatAndCreateScopes";
-import { ResourcesType, RolesNameType, ScopesType } from "./types";
+import { ResourcesType, ScopesType } from "./types";
 
 // ===========================================
 const resources: ResourcesType[] = [
@@ -31,7 +31,6 @@ const resources: ResourcesType[] = [
   "Validar Paciente",
   "Eliminar Laboratorio Mensual",
 ];
-
 // ===========================================
 const scopes: ScopesType[] = [
   "Consulta",
@@ -41,19 +40,6 @@ const scopes: ScopesType[] = [
   "Imprimir",
   "Nuevo",
 ];
-
-// ===========================================
-const roles: RolesNameType[] = [
-  "Administrador",
-  "Analista Administrativo",
-  "Asistente Administrativo",
-  "JEFE SERVICIO IMSS",
-  "SystemAdministrator",
-  "Enfermeria",
-  "Médico",
-  "Ejecutivo",
-];
-
 // ===========================================
 
 interface Props {

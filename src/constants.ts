@@ -14,7 +14,7 @@ export const ADMIN_PASSWORD = "password";
 
 export const KEYCLOAK_URL = "localhost:8080";
 const REALM_NAME = "test-realm";
-const CLIENT_ID = "92e3b976-100a-4f74-a37b-7977627c1864";
+const CLIENT_ID = "abe654ef-1ec0-49c2-947a-781d7498fcc2";
 
 export const CLIENT_NAME = "clean-client"
 
