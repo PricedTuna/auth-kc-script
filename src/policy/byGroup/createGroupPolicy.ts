@@ -25,7 +25,7 @@ export async function createGroupPolicy(policy: createGroupPolicy) {
       },
     });
 
-    console.log("Response:", response.data);
+    console.log("response:", response.data ? response.data : response.status);
     return response.data;
   } catch (error: any) {
     console.error(

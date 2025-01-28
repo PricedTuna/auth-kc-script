@@ -45,7 +45,7 @@ export async function findUserByEmail(email: string) {
     });
 
     // Log de respuesta y retorno del resultado
-    console.log("Response:", response.data);
+    console.log("response:", response.data ? response.data : response.status);
     return response.data[0]; // always response only one (email is unique)
   } catch (error: any) {
     // Manejo de errores

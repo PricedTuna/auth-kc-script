@@ -34,7 +34,7 @@ export async function getGroups(): Promise<
     });
 
     // Log de respuesta y retorno del resultado
-    console.log("Response:", response.data);
+    console.log("response:", response.data ? response.data : response.status);
     return response.data;
   } catch (error: any) {
     // Manejo de errores

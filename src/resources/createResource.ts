@@ -18,7 +18,7 @@ export async function createResource(body: any) {
       },
     });
 
-    console.log("Response:", response.data);
+    console.log("response:", response.data ? response.data : response.status);
     return response.data;
   } catch (error: any) {
     console.error(

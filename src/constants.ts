@@ -13,10 +13,10 @@ export const ADMIN_USERNAME = "admin";
 export const ADMIN_PASSWORD = "password";
 
 export const KEYCLOAK_URL = "localhost:8080";
-const REALM_NAME = "test-realm";
-const CLIENT_ID = "abe654ef-1ec0-49c2-947a-781d7498fcc2";
+const REALM_NAME = "scc-groups";
+const CLIENT_ID = "1b4100ff-13f8-4617-b780-d6c975310515";
 
-export const CLIENT_NAME = "clean-client"
+export const CLIENT_NAME = "Clinica-LosMochis"
 
 export const BASE_URL_RESOURCE_SERVER = `http://${KEYCLOAK_URL}/admin/realms/${REALM_NAME}/clients/${CLIENT_ID}/authz/resource-server`;
 export const BASE_URL = `http://${KEYCLOAK_URL}/admin/realms/${REALM_NAME}/clients/${CLIENT_ID}`;
