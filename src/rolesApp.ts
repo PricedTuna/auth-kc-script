@@ -1,12 +1,11 @@
-import { CLIENT_NAME, FullScope } from "./constants";
-import { addMemberToGroup } from "./groups/addMemberToGroup";
-import { createGroups } from "./groups/createGroups";
+import { FullScope } from "./constants";
 import { createPermissions } from "./permission/createPermissions";
-import { createGroupsPolicies } from "./policy/byGroup/createGroupsPolicy";
-import { formatGroupUsersPolicies } from "./policy/byGroup/formatGroupUsersPolicies";
-import { groupUsersPoliciesParams } from "./policy/byGroup/groupUsersPoliciesParams";
+import { createPolicies } from "./policy/createPolicies";
+import { PoliciesParam, policiesParams } from "./policy/policiesParams";
+import { formatPolicies } from "./policy/formatPolicies";
 import { formatAndCreateResources } from "./resources/formatAndCreateResources";
 import { updateResource } from "./resources/updateResource";
+import { createRoles } from "./roles/createRoles";
 import { formatAndCreateScopes } from "./scopes/formatAndCreateScopes";
 import { ResourcesType, RolesNameType, ScopesType } from "./types";
 
@@ -57,16 +56,24 @@ const roles: RolesNameType[] = [
 // ===========================================
 
 interface Props {
-  client_name: string;
+  roles: RolesNameType[];
+  policiesParams: PoliciesParam[];
   resources: ResourcesType[];
   scopes: ScopesType[];
 }
 
 async function formatAndCreate({
-  client_name: clientName,
+  roles,
+  policiesParams,
   resources,
   scopes,
 }: Props) {
+  // 0. create roles
+  console.log("creating roles");
+  const rolesCreated = await createRoles(roles);
+  console.log("rolesCreated");
+  console.log(JSON.stringify(rolesCreated));
+
   // 1. create resources
   console.log("creating resources");
   const resourcesCreated = await formatAndCreateResources(resources);
@@ -89,19 +96,15 @@ async function formatAndCreate({
   console.log("resourcesUpdated");
   console.log(JSON.stringify(resourcesUpdated));
 
-  // 3. create groups
-  console.log("creating groups");
-  const groupsCreated = await createGroups(clientName, resources, scopes);
-  console.log("groupsCreated");
-  console.log(JSON.stringify(groupsCreated));
-
   // 3. create policies
   console.log("creating policies");
-  const policiesCreated = await createGroupsPolicies(groupsCreated);
-  console.log("groupsCreated");
-  console.log(JSON.stringify(groupsCreated));
+  const policiesCreated = await createPolicies(
+    formatPolicies(policiesParams, rolesCreated)
+  );
+  console.log("policiesCreated");
+  console.log(JSON.stringify(policiesCreated));
 
-  // 5. create permissions
+  // 4. create permissions
   console.log("creating permissions");
   const permissionsCreated = await Promise.all(
     resourcesCreated.map((resource) =>
@@ -114,28 +117,11 @@ async function formatAndCreate({
   );
   console.log("permissionsCreated");
   console.log(JSON.stringify(permissionsCreated));
-
-  // ==================================================
-  console.log("dar formato usuarios a grupos")
-  const groupsAndUsers = await formatGroupUsersPolicies(
-    groupUsersPoliciesParams,
-    clientName
-  );
-  console.log("groupsAndUsers");
-  console.log(JSON.stringify(groupsAndUsers));
-
-  console.log("agregar usuarios a grupos")
-  groupsAndUsers.forEach(async (groupAndUser) => {
-    console.log(JSON.stringify(groupAndUser))
-    await addMemberToGroup(groupAndUser);
-  });
-  console.log("Usuarios agregados (groupsAndUsers)")
-  console.log(JSON.stringify(groupsAndUsers))
-  console.log("fin")
 }
 
 formatAndCreate({
-  client_name: CLIENT_NAME,
+  policiesParams,
   resources,
+  roles,
   scopes,
 });

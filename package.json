@@ -6,9 +6,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "permission": "node dist/permission/app.js",
     "policy": "node dist/policy/app.js",
+    "groupPolicy": "node dist/policy/byGroup/app.js",
     "resources": "node dist/resources/app.js",
     "scopes": "node dist/scopes/app.js",
     "roles": "node dist/roles/app.js",
+    "groups": "node dist/groups/app.js",
     "all": "node dist/app.js",
     "build": "npx tsc"
   },
