@@ -2,45 +2,6 @@
 
 Este proyecto contiene un conjunto de scripts diseñados para configurar y rellenar el **authorize** de un cliente en Keycloak. Los scripts permiten automatizar la creación de permisos, políticas, recursos, roles y scopes necesarios para la configuración del cliente.
 
-## Comandos Disponibles
-
-En el archivo `package.json`, están definidos los siguientes comandos para ejecutar los scripts:
-
-- **`permission`**: Ejecuta el script para gestionar permisos.
-  ```bash
-  npm run permission
-  ```
-
-- **`policy`**: Ejecuta el script para gestionar políticas.
-  ```bash
-  npm run policy
-  ```
-
-- **`resources`**: Ejecuta el script para gestionar recursos.
-  ```bash
-  npm run resources
-  ```
-
-- **`scopes`**: Ejecuta el script para gestionar scopes.
-  ```bash
-  npm run scopes
-  ```
-
-- **`roles`**: Ejecuta el script para gestionar roles.
-  ```bash
-  npm run roles
-  ```
-
-- **`all`**: Ejecuta todos los scripts en secuencia para configurar completamente el cliente.
-  ```bash
-  npm run all
-  ```
-
-- **`build`**: Compila el código TypeScript en JavaScript utilizando `npx tsc`.
-  ```bash
-  npm run build
-  ```
-
 ## Configuración
 
 Antes de ejecutar los scripts, asegúrate de revisar y ajustar los archivos de configuración adecuados para garantizar que los datos de conexión a Keycloak sean correctos.
@@ -58,13 +19,17 @@ Antes de ejecutar los scripts, asegúrate de revisar y ajustar los archivos de c
 ## Ejecución
 
 ### Ejecución de Todos los Scripts
+
 Para ejecutar todos los scripts y configurar el cliente de Keycloak de forma completa:
+
 ```bash
 npm run all
 ```
 
 ### Ejecución Individual
+
 Si deseas ejecutar un script específico, utiliza uno de los comandos mencionados anteriormente. Por ejemplo, para gestionar solo los permisos:
+
 ```bash
 npm run permission
 ```
@@ -75,7 +40,9 @@ npm run permission
 - Conexión a un servidor Keycloak configurado.
 
 ## Compilación del Proyecto
+
 El código fuente está escrito en TypeScript. Antes de ejecutar los scripts, asegúrate de compilar el proyecto con el siguiente comando:
+
 ```bash
 npm run build
 ```
